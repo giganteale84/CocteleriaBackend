@@ -109,8 +109,8 @@ class coctel:
             'deAutor':self.deautor,
             'fechaCreacion' : self.fechacreacion,
             'imagen': self.imagen,
-            'tipo': tipo.serialize(self.tipo),
-            'ingrediente': ingredientePrincipal.serialize(self.principal),
+            'tipo': self.tipo,
+            'ingrediente': self.principal,
             'ingredientes':listIngred,
             }
         return coctel
@@ -126,8 +126,8 @@ class coctel:
 
             nuevo=coctel(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[8],row[7])
             nuevo.setIngredientes()
-            nuevo.setIngredientePrinc()
-            nuevo.setTipo()
+            # nuevo.setIngredientePrinc()
+            # nuevo.setTipo()
             ncoctel.append(nuevo)
         cursor.close()
         return ncoctel
@@ -164,8 +164,6 @@ class coctel:
         for row in rows:
             nuevo=coctel(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[8],row[7])
             nuevo.setIngredientes()
-            nuevo.setIngredientePrinc()
-            nuevo.setTipo()
             favoritos.append(nuevo)
         cursor.close()
         return favoritos
